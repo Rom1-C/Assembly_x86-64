@@ -59,6 +59,7 @@ _solv:
 
 ; Following part from Alicja Piecha, just to print the result, pretty fast and independant from the challenge.
 _itoa:
+	mov rcx, 10000
 	mov rbp, rsp
 	mov r10, 10
 	sub rsp, 22
@@ -66,7 +67,9 @@ _itoa:
 	mov byte [rbp-1], 10  
 	lea r12, [rbp-2]
 	; r12: string pointer
+	xor rdx, rdx
 	mov rax, r9
+	div rcx
 
  .loop:
 	xor edx, edx
